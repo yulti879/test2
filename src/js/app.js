@@ -2,7 +2,11 @@ function initGame() {
   const goblin = document.createElement("div");
   goblin.classList.add("goblin");  
   const cells = Array.from(document.querySelectorAll(".cell"));  
-  
+
+  if (cells.length < 2) {
+    throw new Error("Need at least 2 cells to play the game");
+  }
+
   function getRandomIndex(value) {
     const randomIndex = Math.floor(Math.random() * value);
     return randomIndex;
@@ -15,6 +19,7 @@ function initGame() {
     do {
       newIndex = getRandomIndex(cells.length);
     } while (newIndex === currentIndex);
+    console.log(`Moving goblin from cell ${currentIndex} to cell ${newIndex}`);
     cells[currentIndex].innerHTML = "";
     cells[newIndex].appendChild(goblin);
     currentIndex = newIndex;
@@ -24,7 +29,8 @@ function initGame() {
   setInterval(moveGoblin, 1200);
 }
 
-initGame();
+// Экспортируем функцию для тестирования
+export { initGame };
 
 // comment this to pass build
 const unusedVariable = "variable";
