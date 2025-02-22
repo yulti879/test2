@@ -29,7 +29,7 @@ function initGame() {
   setInterval(moveGoblin, 1200);
 }
 
-// Экспортируем функцию для тестирования
+// Экспортируем функцию, но не вызываем её
 export { initGame };
 
 // comment this to pass build

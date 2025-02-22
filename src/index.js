@@ -1,5 +1,7 @@
 import "./css/style.css";
 
-import "./js/app";
+import { initGame } from "./js/app";
 
-// TODO: write your code in app.js
+document.addEventListener("DOMContentLoaded", () => {
+    initGame();
+  });
